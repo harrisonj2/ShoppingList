@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Shopping List</string>
     <string name="action_settings">Settings</string>
+    <string name="titleCreateList">Create a Shopping List</string>
+    <string name="storeName">Store Name</string>
+    <string name="listName">List Name</string>
+    <string name="dateGoing">Date of Trip</string>
 </resources>
