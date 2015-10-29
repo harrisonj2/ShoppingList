@@ -1,5 +1,6 @@
 package com.example.harrisonj2.shoppinglist;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -37,19 +38,48 @@ public class DBHandler extends SQLiteOpenHelper {
                 COLUMN_LISTNAME + " TEXT, " +
                 COLUMN_STORENNAME + " TEXT, " +
                 COLUMN_TRIPDATE + " TEXT " +
-                "); \n" +
-                "CREATE TABLE " + TABLE_ITEM + "(" +
-                COLUMN_ITEMID + " INTEGER PRIMARY KEY AUTOCREMENT, " +
+                ");";
+        String query2 = "CREATE TABLE " + TABLE_ITEM + "(" +
+                COLUMN_ITEMID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_ITEMNAME + " TEXT, " +
                 COLUMN_QUANTITY + " TEXT, " +
                 COLUMN_ECOST + " TEXT " +
-                COLUMN_LISTID + " INTEGER FOREIGN KEY" +
+                COLUMN_LISTID + " INTEGER, " +
+                "FOREIGN KEY (" + COLUMN_LISTID + ")" +
+                "REFERENCES " + TABLE_LIST + "(" + COLUMN_LISTID + ")" +
+                "ON DELETE CASCADE " +
                 ");";
+
+        db.execSQL(query);
+        db.execSQL(query2);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXIST " + TABLE_ITEM + ", " + TABLE_LIST + ";");
         onCreate(db);
+    }
+
+    public void addList(String listName, String storeName, String tripDate){
+        ContentValues value = new ContentValues();
+        value.put(COLUMN_LISTNAME, listName);
+        value.put(COLUMN_STORENNAME, storeName);
+        value.put(COLUMN_TRIPDATE, tripDate);
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_LIST, null, value);
+        db.close();
+    }
+
+    public void addItem(String itemName, String quantity, String eCost, int listId){
+        ContentValues value = new ContentValues();
+        value.put(COLUMN_ITEMNAME, itemName);
+        value.put(COLUMN_QUANTITY, quantity);
+        value.put(COLUMN_ECOST, eCost);
+        value.put(COLUMN_LISTID, listId);
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_ITEM, null, value);
+        db.close();
     }
 }
