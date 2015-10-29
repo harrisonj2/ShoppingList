@@ -44,10 +44,10 @@ public class DBHandler extends SQLiteOpenHelper {
                 COLUMN_ITEMNAME + " TEXT, " +
                 COLUMN_QUANTITY + " TEXT, " +
                 COLUMN_ECOST + " TEXT " +
-                COLUMN_LISTID + " INTEGER, " +
-                "FOREIGN KEY (" + COLUMN_LISTID + ")" +
+                COLUMN_LISTID + " INTEGER " +
+                /*"FOREIGN KEY (" + COLUMN_LISTID + ")" +
                 "REFERENCES " + TABLE_LIST + "(" + COLUMN_LISTID + ")" +
-                "ON DELETE CASCADE " +
+                "ON DELETE CASCADE " +*/
                 ");";
 
         db.execSQL(query);

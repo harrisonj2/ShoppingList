@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateListActivity extends AppCompatActivity {
 
@@ -24,6 +25,13 @@ public class CreateListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_list);
+
+        listNameEditText = (EditText) findViewById(R.id.listNameEditText);
+        storeNameEditText = (EditText) findViewById(R.id.storeNameEditText);
+        dateEditText = (EditText) findViewById(R.id.dateEditText);
+
+        dbHandler = new DBHandler(this, null);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -35,6 +43,19 @@ public class CreateListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void addList(View view){
+        String name = listNameEditText.getText().toString();
+        String store = storeNameEditText.getText().toString();
+        String date = dateEditText.getText().toString();
+
+        if(name.trim().equals("") || store.trim().equals("") || date.trim().equals("")){
+            Toast.makeText(this, "Please enter data into all fields!", Toast.LENGTH_LONG).show();
+        }else{
+            dbHandler.addList(name, store, date);
+            Toast.makeText(this, "List added!!", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
