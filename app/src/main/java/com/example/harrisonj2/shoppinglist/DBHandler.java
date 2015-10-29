@@ -1,5 +1,7 @@
 package com.example.harrisonj2.shoppinglist;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
@@ -20,4 +22,23 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ITEMNAME = "itemName";
     private static final String COLUMN_QUANTITY = "quantity";
     private static final String COLUMN_ECOST = "estimatedCost";
+
+    private ShoppingList[] listData;
+    private Items[] itemData;
+
+    public DBHandler(Context context, SQLiteDatabase.CursorFactory factory){
+        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String query = "CREATE TABLE " + TABLE_LIST + "(" +
+                COLUMN_LISTID
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXIST " + TABLE_ITEM + ", " + TABLE_LIST + ";");
+        onCreate(db);
+    }
 }
