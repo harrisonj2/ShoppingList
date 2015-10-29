@@ -58,4 +58,9 @@ public class CreateListActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void getLists(View view) {
+        intent = new Intent(this, ViewListActivity.class);
+        startActivity(intent);
+    }
 }

@@ -116,7 +116,7 @@
                 android:text="View Lists"
                 android:id="@+id/viewButton"
                 android:layout_column="1"
-                android:onClick="onView" />
+                android:onClick="viewLists" />
         </TableRow>
     </TableLayout>
 
