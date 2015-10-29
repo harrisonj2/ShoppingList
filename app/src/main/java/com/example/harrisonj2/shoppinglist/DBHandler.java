@@ -33,7 +33,18 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_LIST + "(" +
-                COLUMN_LISTID
+                COLUMN_LISTID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_LISTNAME + " TEXT, " +
+                COLUMN_STORENNAME + " TEXT, " +
+                COLUMN_TRIPDATE + " TEXT " +
+                "); \n" +
+                "CREATE TABLE " + TABLE_ITEM + "(" +
+                COLUMN_ITEMID + " INTEGER PRIMARY KEY AUTOCREMENT, " +
+                COLUMN_ITEMNAME + " TEXT, " +
+                COLUMN_QUANTITY + " TEXT, " +
+                COLUMN_ECOST + " TEXT " +
+                COLUMN_LISTID + " INTEGER FOREIGN KEY" +
+                ");";
     }
 
     @Override
