@@ -6,13 +6,28 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListAdapter;
 
 public class ViewListActivity extends AppCompatActivity {
+
+    private ShoppingList listData;
+
+    DBHandler dbHandler;
+
+    ListAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_list);
+
+        dbHandler = new DBHandler(this, null);
+
+        String[] noLists = {"No Shopping Lists Found"};
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
