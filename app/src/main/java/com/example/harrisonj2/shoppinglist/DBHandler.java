@@ -20,6 +20,4 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ITEMNAME = "itemName";
     private static final String COLUMN_QUANTITY = "quantity";
     private static final String COLUMN_ECOST = "estimatedCost";
-
-    private
 }
