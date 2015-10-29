@@ -5,4 +5,5 @@
     <string name="storeName">Store Name</string>
     <string name="listName">List Name</string>
     <string name="dateGoing">Date of Trip</string>
+    <string name="title_activity_view_list">ViewListActivity</string>
 </resources>
