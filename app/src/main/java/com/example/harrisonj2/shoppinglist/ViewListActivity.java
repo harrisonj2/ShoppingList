@@ -1,5 +1,6 @@
 package com.example.harrisonj2.shoppinglist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -53,6 +54,11 @@ public class ViewListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void viewOpenList(View view) {
+        Intent intent = new Intent(this, openListActivity.class);
+        startActivity(intent);
     }
 
 
