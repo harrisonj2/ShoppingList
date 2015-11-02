@@ -27,20 +27,20 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="29dp"
+        android:layout_width="32dp"
         android:layout_height="26dp"
         android:id="@+id/openButton"
         android:width="50dp"
         android:background="#AED581"
         android:layout_weight="0.34"
-        android:text="Open" />
+        android:text="@string/open" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="29dp"
+        android:layout_width="32dp"
         android:layout_height="26dp"
         android:id="@+id/deleteButton"
         android:background="#EF5350"
         android:layout_weight="0.34"
-        android:text="Delete" />
+        android:text="@string/delete" />
 </LinearLayout>

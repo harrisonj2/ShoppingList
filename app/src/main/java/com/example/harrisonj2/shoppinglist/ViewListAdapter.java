@@ -21,14 +21,14 @@ public class ViewListAdapter extends ArrayAdapter<ShoppingList> {
 
 
     public ViewListAdapter(Context context, ShoppingList[] objects) {
-        super(context, R.layout.custom_row, objects);
+        super(context, R.layout.list_rows, objects);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
 
-        View shoppingListView = inflater.inflate(R.layout.custom_row, parent, false);
+        View shoppingListView = inflater.inflate(R.layout.list_rows, parent, false);
 
         shoppingList = getItem(position);
 
