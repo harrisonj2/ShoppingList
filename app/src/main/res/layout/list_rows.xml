@@ -33,7 +33,8 @@
         android:width="50dp"
         android:background="#AED581"
         android:layout_weight="0.34"
-        android:text="@string/open" />
+        android:text="@string/open"
+        android:onClick="viewOpenList" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
