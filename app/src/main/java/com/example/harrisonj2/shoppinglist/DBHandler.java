@@ -111,6 +111,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         }
 
+        db.close();
+
         return listData;
 
     }

@@ -6,11 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class ViewListActivity extends AppCompatActivity {
 
-    private ShoppingList listData;
+    private ShoppingList[] listData;
 
     DBHandler dbHandler;
 
@@ -25,6 +27,18 @@ public class ViewListActivity extends AppCompatActivity {
         dbHandler = new DBHandler(this, null);
 
         String[] noLists = {"No Shopping Lists Found"};
+
+        listData = dbHandler.getShoppingLists();
+
+        if(listData != null) {
+            adapter = new ViewListAdapter(this, listData);
+        } else {
+            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noLists);
+        }
+
+        ListView listView = (ListView) findViewById(R.id.shoppingListView);
+
+        listView.setAdapter(adapter);
 
 
 
