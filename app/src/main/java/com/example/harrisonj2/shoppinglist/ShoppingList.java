@@ -10,10 +10,11 @@ public class ShoppingList {
     public ShoppingList(){
     }
 
-    public ShoppingList(String listName, String storeName, String tripDate){
+    public ShoppingList(int listID, String listName, String storeName, String tripDate){
         this.listName = listName;
         this.storeName = storeName;
         this.tripDate = tripDate;
+        this.id = listID;
     }
 
     public int getId() {

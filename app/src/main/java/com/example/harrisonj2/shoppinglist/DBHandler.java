@@ -100,7 +100,8 @@ public class DBHandler extends SQLiteOpenHelper {
             c.moveToFirst();
 
             while (!c.isAfterLast()) {
-                listData[i] = new ShoppingList(c.getString(c.getColumnIndex(COLUMN_LISTNAME)),
+                listData[i] = new ShoppingList(c.getInt(c.getColumnIndex(COLUMN_LISTID)),
+                        c.getString(c.getColumnIndex(COLUMN_LISTNAME)),
                         c.getString(c.getColumnIndex(COLUMN_STORENNAME)),
                         c.getString(c.getColumnIndex(COLUMN_TRIPDATE)));
 
