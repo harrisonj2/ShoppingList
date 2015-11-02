@@ -116,4 +116,13 @@ public class DBHandler extends SQLiteOpenHelper {
         return listData;
 
     }
+
+    public ShoppingList getShoppingList() {
+        SQLiteDatabase db = getWritableDatabase();
+
+
+        return null;
+
+
+    }
 }
