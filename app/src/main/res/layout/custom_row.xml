@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:id="@+id/shoppingListNameText"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="StoreName"
+        android:id="@+id/storeNameText"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip Date"
+        android:id="@+id/tripDateText"
+        android:padding="10dp"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="29dp"
+        android:layout_height="26dp"
+        android:id="@+id/openButton"
+        android:width="50dp"
+        android:background="#AED581"
+        android:layout_weight="0.34"
+        android:text="Open" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="29dp"
+        android:layout_height="26dp"
+        android:id="@+id/deleteButton"
+        android:background="#EF5350"
+        android:layout_weight="0.34"
+        android:text="Delete" />
+</LinearLayout>
