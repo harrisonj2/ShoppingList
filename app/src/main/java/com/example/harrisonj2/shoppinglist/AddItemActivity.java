@@ -29,6 +29,12 @@ public class AddItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
+        itemNameEditText = (EditText) findViewById(R.id.itemNameEditText);
+        quantityEditText = (EditText) findViewById(R.id.quantityEditText);
+        estCostEditText = (EditText) findViewById(R.id.estCostEditText);
+
+        dbHandler = new DBHandler(this, null);
+
         String message;
         listNameTextView = (TextView) findViewById(R.id.listNameTextView);
         //listId = (Integer) findViewById(R.id.listId);
@@ -58,6 +64,7 @@ public class AddItemActivity extends AppCompatActivity {
         String quantity = quantityEditText.getText().toString();
         String estCost = estCostEditText.getText().toString();
 
+        listId = 1;
         //listId = dbHandler.getListId(listNameTextView.toString());
 
         if(name.trim().equals("") || quantity.trim().equals("") || estCost.trim().equals("")){

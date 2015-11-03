@@ -61,6 +61,9 @@ public class ViewListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onDeleteList(){
+        dbHandler.deleteShoppingList(1);
+    }
 
 
 }

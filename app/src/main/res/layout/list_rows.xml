@@ -43,5 +43,6 @@
         android:id="@+id/deleteButton"
         android:background="#EF5350"
         android:layout_weight="0.34"
-        android:text="@string/delete" />
+        android:text="@string/delete"
+        android:onClick="onDeleteList" />
 </LinearLayout>
