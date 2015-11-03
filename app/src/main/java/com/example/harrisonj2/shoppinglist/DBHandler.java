@@ -2,6 +2,7 @@ package com.example.harrisonj2.shoppinglist;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -81,5 +82,59 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_ITEM, null, value);
         db.close();
+    }
+
+    public ShoppingList[] getShoppingLists() {
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_LIST + ";";
+
+        Cursor c = db.rawQuery(query, null);
+
+        int numOfLists = c.getCount();
+
+        if (numOfLists >= 1) {
+
+            listData = new ShoppingList[numOfLists];
+            int i = 0;
+            c.moveToFirst();
+
+            while (!c.isAfterLast()) {
+                listData[i] = new ShoppingList(c.getInt(c.getColumnIndex(COLUMN_LISTID)),
+                        c.getString(c.getColumnIndex(COLUMN_LISTNAME)),
+                        c.getString(c.getColumnIndex(COLUMN_STORENNAME)),
+                        c.getString(c.getColumnIndex(COLUMN_TRIPDATE)));
+
+                c.moveToNext();
+                i++;
+            }
+
+
+        }
+
+        db.close();
+
+        return listData;
+
+    }
+
+    public ShoppingList getShoppingList() {
+        SQLiteDatabase db = getWritableDatabase();
+
+
+        return null;
+
+
+    }
+
+    public void deleteShoppingList(int id) {
+
+        String query = "DELETE FROM " + TABLE_LIST + " WHERE " + COLUMN_LISTID + "=" + id;
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+
+        db.close();
+
     }
 }

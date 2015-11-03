@@ -6,4 +6,8 @@
     <string name="listName">List Name</string>
     <string name="dateGoing">Date of Trip</string>
     <string name="title_activity_view_list">ViewListActivity</string>
+    <string name="open">Open</string>
+    <string name="delete">Delete</string>
+    <string name="title_activity_open_list">openListActivity</string>
+    <string name="addItem">Add Item</string>
 </resources>

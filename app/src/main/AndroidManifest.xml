@@ -21,6 +21,10 @@
         <activity
             android:name=".ViewListActivity"
             android:label="@string/title_activity_view_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".openListActivity"
+            android:label="@string/title_activity_open_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
