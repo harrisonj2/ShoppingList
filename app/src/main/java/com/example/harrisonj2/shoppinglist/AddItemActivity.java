@@ -7,11 +7,21 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddItemActivity extends AppCompatActivity {
 
     TextView listNameTextView;
+
+    EditText itemNameEditText;
+    EditText quantityEditText;
+    EditText estCostEditText;
+
+    int listId;
+
+    DBHandler dbHandler;
     Intent intent;
 
     @Override
@@ -21,6 +31,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         String message;
         listNameTextView = (TextView) findViewById(R.id.listNameTextView);
+        //listId = (Integer) findViewById(R.id.listId);
         Bundle name = getIntent().getExtras();
         if(name==null)
             message = "";
@@ -40,6 +51,21 @@ public class AddItemActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void addItem(View view){
+        String name = itemNameEditText.getText().toString();
+        String quantity = quantityEditText.getText().toString();
+        String estCost = estCostEditText.getText().toString();
+
+        //listId = dbHandler.getListId(listNameTextView.toString());
+
+        if(name.trim().equals("") || quantity.trim().equals("") || estCost.trim().equals("")){
+            Toast.makeText(this, "Please enter data into all fields!", Toast.LENGTH_LONG).show();
+        }else{
+            dbHandler.addItem(name, quantity, estCost, listId);
+            Toast.makeText(this, "List added!!", Toast.LENGTH_LONG).show();
+        }
     }
 
 }
