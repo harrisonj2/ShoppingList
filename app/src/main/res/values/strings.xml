@@ -10,4 +10,7 @@
     <string name="delete">Delete</string>
     <string name="title_activity_open_list">openListActivity</string>
     <string name="addItem">Add Item</string>
+    <string name="title_activity_add_item">AddItemActivity</string>
+    <string name="addItemTo">Add an Item</string>
+    <string name="quantity">Quantity</string>
 </resources>
