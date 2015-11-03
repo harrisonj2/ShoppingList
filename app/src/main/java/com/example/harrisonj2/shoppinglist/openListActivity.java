@@ -1,5 +1,6 @@
 package com.example.harrisonj2.shoppinglist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class openListActivity extends AppCompatActivity {
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,16 @@ public class openListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void goToAddItem(View view){
+        String listName;
+        int listId;
+
+        intent = new Intent(this, AddItemActivity.class);
+        //intent.putExtra("listName", listName);
+        //intent.putExtra("listId", listId);
+        startActivity(intent);
     }
 
 }

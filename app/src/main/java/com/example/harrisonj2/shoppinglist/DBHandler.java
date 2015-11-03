@@ -108,14 +108,11 @@ public class DBHandler extends SQLiteOpenHelper {
                 c.moveToNext();
                 i++;
             }
-
-
         }
 
         db.close();
 
         return listData;
-
     }
 
     public ShoppingList getShoppingList() {
@@ -123,8 +120,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
         return null;
-
-
     }
 
     public void deleteShoppingList(int id) {
@@ -135,6 +130,15 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query);
 
         db.close();
+    }
 
+    public void deleteItem(int id) {
+
+        String query = "DELETE FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=" + id;
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+
+        db.close();
     }
 }

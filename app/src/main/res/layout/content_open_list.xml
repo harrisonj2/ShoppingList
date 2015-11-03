@@ -19,7 +19,8 @@
         android:id="@+id/addItemButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="goToAddItem" />
 
     <ListView
         android:layout_width="wrap_content"

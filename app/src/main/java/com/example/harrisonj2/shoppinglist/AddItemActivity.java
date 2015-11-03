@@ -64,7 +64,7 @@ public class AddItemActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter data into all fields!", Toast.LENGTH_LONG).show();
         }else{
             dbHandler.addItem(name, quantity, estCost, listId);
-            Toast.makeText(this, "List added!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Item added!!", Toast.LENGTH_LONG).show();
         }
     }
 
