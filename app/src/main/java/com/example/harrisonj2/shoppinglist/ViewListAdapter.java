@@ -14,6 +14,7 @@ public class ViewListAdapter extends ArrayAdapter<ShoppingList> {
 
     ShoppingList shoppingList;
 
+    int listId;
     TextView nameTextView;
     TextView storeNameTextView;
     TextView tripDateTextView;
@@ -36,6 +37,7 @@ public class ViewListAdapter extends ArrayAdapter<ShoppingList> {
         storeNameTextView = (TextView) shoppingListView.findViewById(R.id.storeNameText);
         tripDateTextView = (TextView) shoppingListView.findViewById(R.id.tripDateText);
 
+        listId = shoppingList.getId();
         nameTextView.setText(shoppingList.getListName());
         storeNameTextView.setText(shoppingList.getStoreName());
         tripDateTextView.setText(shoppingList.getTripDate());
