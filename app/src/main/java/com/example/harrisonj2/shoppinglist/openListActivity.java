@@ -11,11 +11,20 @@ import android.view.View;
 public class openListActivity extends AppCompatActivity {
 
     Intent intent;
+    int listID;
+    String listName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_list);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            listID = extras.getInt("listID");
+            listName = extras.getString("listName");
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
