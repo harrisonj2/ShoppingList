@@ -86,33 +86,50 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public ShoppingList[] getShoppingLists() {
         SQLiteDatabase db = getWritableDatabase();
-
         String query = "SELECT * FROM " + TABLE_LIST + ";";
-
         Cursor c = db.rawQuery(query, null);
-
         int numOfLists = c.getCount();
 
         if (numOfLists >= 1) {
-
             listData = new ShoppingList[numOfLists];
             int i = 0;
             c.moveToFirst();
-
             while (!c.isAfterLast()) {
                 listData[i] = new ShoppingList(c.getInt(c.getColumnIndex(COLUMN_LISTID)),
                         c.getString(c.getColumnIndex(COLUMN_LISTNAME)),
                         c.getString(c.getColumnIndex(COLUMN_STORENNAME)),
                         c.getString(c.getColumnIndex(COLUMN_TRIPDATE)));
-
                 c.moveToNext();
                 i++;
             }
         }
+        db.close();
+        return listData;
+    }
 
+    public Items[] getItems(int listId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEM +
+                " WHERE " + COLUMN_LISTID + " = " + listId;
+
+        Cursor c = db.rawQuery(query, null);
+        int numOfItems = c.getCount();
+        if(numOfItems >= 1){
+            itemData = new Items[numOfItems];
+            int i = 0;
+            c.moveToFirst();
+            while(!c.isAfterLast()){
+                itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
+                        c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
+                        c.getString(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getString(c.getColumnIndex(COLUMN_ECOST)));
+                c.moveToNext();
+                i++;
+            }
+        }
         db.close();
 
-        return listData;
+        return itemData;
     }
 
     public ShoppingList getShoppingList() {

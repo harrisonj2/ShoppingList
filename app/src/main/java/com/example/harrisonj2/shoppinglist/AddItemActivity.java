@@ -14,12 +14,11 @@ import android.widget.Toast;
 public class AddItemActivity extends AppCompatActivity {
 
     TextView listNameTextView;
+    int listId;
 
     EditText itemNameEditText;
     EditText quantityEditText;
     EditText estCostEditText;
-
-    int listId;
 
     DBHandler dbHandler;
     Intent intent;
