@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -41,8 +42,6 @@ public class ViewListActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -54,10 +53,12 @@ public class ViewListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
 
+    }
     public void viewOpenList(View view) {
-        Intent intent = new Intent(this, openListActivity.class);
+        Intent intent = new Intent(getApplicationContext(), openListActivity.class);
+        intent.putExtra("listID", shoppingList.getId());
+        intent.putExtra("listName", shoppingList.getListName());
         startActivity(intent);
     }
 
