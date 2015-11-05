@@ -31,6 +31,11 @@
             android:label="@string/title_activity_add_item"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ItemRows"
+            android:label="@string/title_activity_item_rows"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
