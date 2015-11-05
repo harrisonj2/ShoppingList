@@ -57,8 +57,8 @@ public class ViewListActivity extends AppCompatActivity {
     }
     public void viewOpenList(View view) {
         Intent intent = new Intent(getApplicationContext(), openListActivity.class);
-        intent.putExtra("listID", shoppingList.getId());
-        intent.putExtra("listName", shoppingList.getListName());
+        //intent.putExtra("listID", shoppingList.getId());
+        //intent.putExtra("listName", shoppingList.getListName());
         startActivity(intent);
     }
 
