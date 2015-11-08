@@ -24,6 +24,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ITEMNAME = "itemName";
     private static final String COLUMN_QUANTITY = "quantity";
     private static final String COLUMN_ECOST = "estimatedCost";
+    private static final String COLUMN_GOTTEN = "itemPurchased";
 
     private ShoppingList[] listData;
     private Items[] itemData;
@@ -44,7 +45,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 COLUMN_ITEMID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_ITEMNAME + " TEXT, " +
                 COLUMN_QUANTITY + " TEXT, " +
-                COLUMN_ECOST + " TEXT " +
+                COLUMN_ECOST + " TEXT, " +
+                COLUMN_GOTTEN + " TEXT, " +
                 COLUMN_LISTID + " INTEGER " +
                 /*"FOREIGN KEY (" + COLUMN_LISTID + ")" +
                 "REFERENCES " + TABLE_LIST + "(" + COLUMN_LISTID + ")" +
@@ -77,6 +79,7 @@ public class DBHandler extends SQLiteOpenHelper {
         value.put(COLUMN_ITEMNAME, itemName);
         value.put(COLUMN_QUANTITY, quantity);
         value.put(COLUMN_ECOST, eCost);
+        value.put(COLUMN_GOTTEN, "false");
         value.put(COLUMN_LISTID, listId);
 
         SQLiteDatabase db = getWritableDatabase();
@@ -122,7 +125,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
                         c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
                         c.getString(c.getColumnIndex(COLUMN_QUANTITY)),
-                        c.getString(c.getColumnIndex(COLUMN_ECOST)));
+                        c.getString(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getString(c.getColumnIndex(COLUMN_GOTTEN)));
+
                 c.moveToNext();
                 i++;
             }

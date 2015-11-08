@@ -5,18 +5,15 @@ package com.example.harrisonj2.shoppinglist;
  */
 public class Items {
     private int id;
-    private String itemName, quantity, eCost;
+    private String itemName, quantity, eCost, purchased;
     private int listId;
 
-    public Items(int listId){
-        this.listId = listId;
-    }
-
-    public Items(int listId, String itemName, String quantity, String eCost){
+    public Items(int listId, String itemName, String quantity, String eCost, String purchased){
         this.listId = listId;
         this.itemName = itemName;
         this.quantity = quantity;
         this.eCost = eCost;
+        this.purchased = purchased;
     }
 
     public int getId() {
