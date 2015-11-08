@@ -15,9 +15,8 @@ import android.widget.ListView;
 public class ViewListActivity extends AppCompatActivity {
 
     private ShoppingList[] listData;
-
+    private ShoppingList list;
     DBHandler dbHandler;
-
     ListAdapter adapter;
 
 
@@ -53,6 +52,21 @@ public class ViewListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        list = (ShoppingList) parent.getItemAtPosition(position);
+
+                        Intent i = new Intent(ViewListActivity.this, ListSelect.class);
+                        i.putExtra("listId", list.getId());
+                        i.putExtra("listName", list.getListName());
+
+                        startActivity(i);
+                    }
+                }
+        );
 
     }
     public void viewOpenList(View view) {
