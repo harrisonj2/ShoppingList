@@ -163,4 +163,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.close();
     }
+
+    public void gotItem(int id){
+        String query = "UPDATE " + COLUMN_GOTTEN + " FROM " + TABLE_ITEM + " WHERE " +
+                COLUMN_ITEMID + " = " + id;
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+        db.close();
+    }
 }
