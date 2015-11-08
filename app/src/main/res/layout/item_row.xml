@@ -15,7 +15,8 @@
             android:layout_column="0"
             android:allowUndo="true"
             android:width="115dp"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:maxWidth="115dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
             android:id="@+id/quantityTextView"
             android:layout_column="1"
             android:width="115dp"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:maxWidth="115dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +37,8 @@
             android:id="@+id/estCostTextView"
             android:layout_column="2"
             android:width="115dp"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:maxWidth="115dp" />
     </TableRow>
 
     <TableRow
