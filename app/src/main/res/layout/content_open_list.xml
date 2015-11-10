@@ -64,5 +64,5 @@
         android:layout_above="@+id/itemListView"
         android:layout_toRightOf="@+id/calculateCostButton"
         android:layout_toEndOf="@+id/calculateCostButton"
-        android:onClick="delete" />
+        android:onClick="deleteList" />
 </RelativeLayout>
