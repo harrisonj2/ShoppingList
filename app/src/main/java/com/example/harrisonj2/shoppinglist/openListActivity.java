@@ -71,6 +71,8 @@ public class openListActivity extends AppCompatActivity {
 
     public void goToAddItem(View view){
         intent = new Intent(this, AddItemActivity.class);
+        intent.putExtra("shoppingListID", shoppingListID);
+        intent.putExtra("shoppingListName", shoppingListName);
         startActivity(intent);
     }
 

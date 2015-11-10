@@ -14,11 +14,13 @@ import android.widget.Toast;
 public class AddItemActivity extends AppCompatActivity {
 
     TextView listNameTextView;
-    int listId;
 
     EditText itemNameEditText;
     EditText quantityEditText;
     EditText estCostEditText;
+
+    int shoppingListID;
+    String shoppingListName;
 
     DBHandler dbHandler;
     Intent intent;
@@ -27,6 +29,12 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            shoppingListID = extras.getInt("shoppingListID");
+            shoppingListName = extras.getString("shoppingListName");
+        }
 
         itemNameEditText = (EditText) findViewById(R.id.itemNameEditText);
         quantityEditText = (EditText) findViewById(R.id.quantityEditText);
@@ -63,15 +71,18 @@ public class AddItemActivity extends AppCompatActivity {
         String quantity = quantityEditText.getText().toString();
         String estCost = estCostEditText.getText().toString();
 
-        listId = 1;
-        //listId = dbHandler.getListId(listNameTextView.toString());
-
         if(name.trim().equals("") || quantity.trim().equals("") || estCost.trim().equals("")){
             Toast.makeText(this, "Please enter data into all fields!", Toast.LENGTH_LONG).show();
         }else{
-            dbHandler.addItem(name, quantity, estCost, listId);
+            dbHandler.addItem(name, quantity, estCost, shoppingListID);
             Toast.makeText(this, "Item added!!", Toast.LENGTH_LONG).show();
         }
     }
 
+    public void goBack(View view) {
+        intent = new Intent(this, openListActivity.class);
+        intent.putExtra("shoppingListID", shoppingListID);
+        intent.putExtra("shoppingListName", shoppingListName);
+        startActivity(intent);
+    }
 }

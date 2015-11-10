@@ -122,10 +122,10 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Items"
-                android:id="@+id/viewItemsButton"
+                android:text="Go Back"
+                android:id="@+id/goBackButton"
                 android:layout_column="1"
-                android:onClick="viewItems" />
+                android:onClick="goBack" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>
