@@ -5,12 +5,8 @@ package com.example.harrisonj2.shoppinglist;
  */
 public class Items {
     private int id;
-    private String itemName, quantity, eCost;
+    private String itemName, quantity, eCost, purchased;
     private int listId;
-
-    public Items(int listId){
-        this.listId = listId;
-    }
 
     public Items(int listId, String itemName, String quantity, String eCost){
         this.listId = listId;

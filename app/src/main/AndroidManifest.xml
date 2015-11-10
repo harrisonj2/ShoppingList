@@ -32,8 +32,8 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".ItemRows"
-            android:label="@string/title_activity_item_rows"
+            android:name=".ItemSelect"
+            android:label="@string/title_activity_item_select"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

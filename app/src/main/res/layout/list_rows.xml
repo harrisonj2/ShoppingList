@@ -9,20 +9,26 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/shoppingListNameText"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:width="115dp"
+        android:maxWidth="115dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="StoreName"
         android:id="@+id/storeNameText"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:width="115dp"
+        android:maxWidth="115dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Trip Date"
         android:id="@+id/tripDateText"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:width="115dp"
+        android:maxWidth="115dp"/>
 
 </LinearLayout>

@@ -18,7 +18,6 @@ public class ViewListActivity extends AppCompatActivity {
     private ShoppingList shoppingList;
 
     DBHandler dbHandler;
-
     ListAdapter adapter;
 
 
@@ -73,7 +72,6 @@ public class ViewListActivity extends AppCompatActivity {
         });
 
     }
-
     public void onDeleteList(){
         dbHandler.deleteShoppingList(1);
     }

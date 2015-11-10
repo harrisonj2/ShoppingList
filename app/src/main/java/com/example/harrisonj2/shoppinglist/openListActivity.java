@@ -43,7 +43,7 @@ public class openListActivity extends AppCompatActivity {
         listData = dbHandler.getItems(shoppingListID);
 
         if (listData != null) {
-            adapter = new ViewItemsAdapter(this, listData);
+            adapter = new ViewItemAdapter(this, listData);
         } else {
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noLists);
         }
