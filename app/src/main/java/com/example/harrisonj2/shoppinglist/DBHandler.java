@@ -114,6 +114,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         Cursor c = db.rawQuery(query, null);
         int numOfItems = c.getCount();
+
         if(numOfItems >= 1){
             itemData = new Items[numOfItems];
             int i = 0;

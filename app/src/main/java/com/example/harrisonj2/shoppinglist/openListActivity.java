@@ -7,12 +7,21 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class openListActivity extends AppCompatActivity {
 
     Intent intent;
-    int listID;
-    String listName;
+    int shoppingListID;
+    String shoppingListName;
+    String shoppingListStore;
+    String shoppingListDate;
+
+    private Items[] listData;
+    DBHandler dbHandler;
+    ListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +30,27 @@ public class openListActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
-            listID = extras.getInt("listID");
-            listName = extras.getString("listName");
+            shoppingListID = extras.getInt("shoppingListID");
+            shoppingListName = extras.getString("shoppingListName");
+            shoppingListStore = extras.getString("shoppingListStore");
+            shoppingListDate = extras.getString("shoppingListDate");
         }
+
+        dbHandler = new DBHandler(this, null);
+
+        String[] noLists = {"No items Found"};
+
+        listData = dbHandler.getItems(shoppingListID);
+
+        if (listData != null) {
+            adapter = new ViewItemsAdapter(this, listData);
+        } else {
+            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noLists);
+        }
+
+        ListView listView = (ListView) findViewById(R.id.itemListView);
+
+        listView.setAdapter(adapter);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -39,12 +66,7 @@ public class openListActivity extends AppCompatActivity {
     }
 
     public void goToAddItem(View view){
-        String listName;
-        int listId;
-
         intent = new Intent(this, AddItemActivity.class);
-        //intent.putExtra("listName", listName);
-        //intent.putExtra("listId", listId);
         startActivity(intent);
     }
 

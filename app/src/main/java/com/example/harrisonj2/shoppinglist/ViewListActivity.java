@@ -15,6 +15,7 @@ import android.widget.ListView;
 public class ViewListActivity extends AppCompatActivity {
 
     private ShoppingList[] listData;
+    private ShoppingList shoppingList;
 
     DBHandler dbHandler;
 
@@ -32,7 +33,7 @@ public class ViewListActivity extends AppCompatActivity {
 
         listData = dbHandler.getShoppingLists();
 
-        if(listData != null) {
+        if (listData != null) {
             adapter = new ViewListAdapter(this, listData);
         } else {
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noLists);
@@ -41,6 +42,23 @@ public class ViewListActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.shoppingListView);
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        shoppingList = (ShoppingList) parent.getItemAtPosition(position);
+
+                        Intent i = new Intent(ViewListActivity.this, openListActivity.class);
+                        i.putExtra("shoppingListID", shoppingList.getId());
+                        i.putExtra("shoppingListName", shoppingList.getListName());
+                        i.putExtra("shoppingListStore", shoppingList.getStoreName());
+                        i.putExtra("shoppingListDate", shoppingList.getTripDate());
+
+                        startActivity(i);
+                    }
+                }
+        );
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,12 +72,6 @@ public class ViewListActivity extends AppCompatActivity {
             }
         });
 
-    }
-    public void viewOpenList(View view) {
-        Intent intent = new Intent(getApplicationContext(), openListActivity.class);
-        intent.putExtra("listID", shoppingList.getId());
-        intent.putExtra("listName", shoppingList.getListName());
-        startActivity(intent);
     }
 
     public void onDeleteList(){
