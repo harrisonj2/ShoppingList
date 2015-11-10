@@ -17,9 +17,10 @@
         android:layout_height="wrap_content"
         android:text="@string/addItem"
         android:id="@+id/addItemButton"
+        android:width="119dp"
+        android:height="50dp"
         android:onClick="goToAddItem"
         android:layout_marginTop="25dp"
-        android:width="150dp"
         android:layout_below="@+id/shoppingListNameTV"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -46,9 +47,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate Cost"
-        android:id="@+id/button"
-        android:width="150dp"
+        android:id="@+id/calculateCostButton"
+        android:width="119dp"
+        android:height="50dp"
         android:layout_above="@+id/itemListView"
         android:layout_toRightOf="@+id/addItemButton"
         android:layout_toEndOf="@+id/addItemButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE LIST"
+        android:id="@+id/deleteListButton"
+        android:width="119dp"
+        android:height="50dp"
+        android:layout_above="@+id/itemListView"
+        android:layout_toRightOf="@+id/calculateCostButton"
+        android:layout_toEndOf="@+id/calculateCostButton"
+        android:onClick="delete" />
 </RelativeLayout>

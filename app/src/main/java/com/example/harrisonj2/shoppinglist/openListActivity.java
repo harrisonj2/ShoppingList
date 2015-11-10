@@ -74,4 +74,8 @@ public class openListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void delete() {
+        dbHandler.deleteShoppingList(shoppingListID);
+    }
+
 }
