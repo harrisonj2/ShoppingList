@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class openListActivity extends AppCompatActivity {
 
@@ -51,6 +52,9 @@ public class openListActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.itemListView);
 
         listView.setAdapter(adapter);
+
+        TextView shoppingListNameTV = (TextView) findViewById(R.id.shoppingListNameTV);
+        shoppingListNameTV.setText(shoppingListName);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

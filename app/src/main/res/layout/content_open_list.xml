@@ -17,10 +17,12 @@
         android:layout_height="wrap_content"
         android:text="@string/addItem"
         android:id="@+id/addItemButton"
-        android:layout_alignParentTop="true"
+        android:onClick="goToAddItem"
+        android:layout_marginTop="25dp"
+        android:width="150dp"
+        android:layout_below="@+id/shoppingListNameTV"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="goToAddItem" />
+        android:layout_alignParentStart="true" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -29,4 +31,24 @@
         android:layout_below="@+id/addItemButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:id="@+id/shoppingListNameTV"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate Cost"
+        android:id="@+id/button"
+        android:width="150dp"
+        android:layout_above="@+id/itemListView"
+        android:layout_toRightOf="@+id/addItemButton"
+        android:layout_toEndOf="@+id/addItemButton" />
 </RelativeLayout>
