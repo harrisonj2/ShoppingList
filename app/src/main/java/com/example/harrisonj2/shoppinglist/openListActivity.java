@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ public class openListActivity extends AppCompatActivity {
     String shoppingListDate;
 
     private Items[] listData;
+    private Items item;
     DBHandler dbHandler;
     ListAdapter adapter;
 
@@ -52,6 +54,23 @@ public class openListActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.itemListView);
 
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        item = (Items) parent.getItemAtPosition(position);
+
+                        Intent i = new Intent(openListActivity.this, ItemSelect.class);
+                        i.putExtra("itemID", item.getId());
+                        i.putExtra("itemName", item.getItemName());
+                        i.putExtra("itemQuantity", item.getQuantity());
+                        i.putExtra("itemPurchased", item.getPurchased());
+                        i.putExtra("listID", item.getListId());
+
+                        startActivity(i);
+                    }
+                }
+        );
 
         TextView shoppingListNameTV = (TextView) findViewById(R.id.shoppingListNameTV);
         shoppingListNameTV.setText(shoppingListName);

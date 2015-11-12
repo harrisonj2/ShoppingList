@@ -126,7 +126,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
                         c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
                         c.getString(c.getColumnIndex(COLUMN_QUANTITY)),
-                        c.getString(c.getColumnIndex(COLUMN_ECOST)));
+                        c.getString(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
+                        c.getInt(c.getColumnIndex(COLUMN_LISTID)));
 
                 c.moveToNext();
                 i++;

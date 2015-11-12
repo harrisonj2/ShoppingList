@@ -8,11 +8,21 @@ public class Items {
     private String itemName, quantity, eCost, purchased;
     private int listId;
 
-    public Items(int listId, String itemName, String quantity, String eCost){
+    public Items(int id, String itemName, String quantity, String eCost, String purchased, int listId){
+        this.id = id;
         this.listId = listId;
         this.itemName = itemName;
         this.quantity = quantity;
         this.eCost = eCost;
+        this.purchased = purchased;
+    }
+
+    public String getPurchased() {
+        return purchased;
+    }
+
+    public void setPurchased(String purchased) {
+        this.purchased = purchased;
     }
 
     public int getId() {

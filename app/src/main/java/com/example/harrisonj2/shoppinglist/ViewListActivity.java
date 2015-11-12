@@ -72,9 +72,6 @@ public class ViewListActivity extends AppCompatActivity {
         });
 
     }
-    public void onDeleteList(){
-        dbHandler.deleteShoppingList(1);
-    }
 
 
 }
