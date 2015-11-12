@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 
 public class ItemSelect extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class ItemSelect extends AppCompatActivity {
     private Items item;
     DBHandler dbHandler;
     ListAdapter adapter;
+
+    TextView listNameTextView, itemNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,12 @@ public class ItemSelect extends AppCompatActivity {
             listDate = extras.getString("shoppingListDate");
         }
 
+        listNameTextView = (TextView) findViewById(R.id.listNameTextView);
+        listNameTextView.setText(listName);
+
+        itemNameTextView = (TextView) findViewById(R.id.itemNameTextView);
+        itemNameTextView.setText(itemName);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,7 +59,7 @@ public class ItemSelect extends AppCompatActivity {
         });
     }
 
-    public void gotButton(View view){
+    public void gotItem(View view){
         dbHandler.gotItem(itemID);
         intent = new Intent(this, openListActivity.class);
         intent.putExtra("shoppingListID", listID);
@@ -60,7 +69,7 @@ public class ItemSelect extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void deleteButton(View view){
+    public void deleteItem(View view){
         dbHandler.deleteItem(itemID);
         intent = new Intent(this, openListActivity.class);
         intent.putExtra("shoppingListID", listID);
