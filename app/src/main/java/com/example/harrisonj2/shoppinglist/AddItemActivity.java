@@ -51,6 +51,7 @@ public class AddItemActivity extends AppCompatActivity {
         else
             message = name.getString("name");
 
+        listNameTextView = (TextView) findViewById(R.id.listNameTextView);
         listNameTextView.setText(message);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

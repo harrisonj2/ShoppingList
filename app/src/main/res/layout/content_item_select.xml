@@ -62,6 +62,24 @@
                 android:onClick="gotItem"
                 android:width="150dp" />
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button"
+                android:layout_column="0" />
+        </TableRow>
     </TableLayout>
 
 </RelativeLayout>
