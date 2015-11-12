@@ -44,12 +44,11 @@ public class AddItemActivity extends AppCompatActivity {
 
         String message;
         listNameTextView = (TextView) findViewById(R.id.listNameTextView);
-        //listId = (Integer) findViewById(R.id.listId);
-        Bundle name = getIntent().getExtras();
-        if(name==null)
+
+        if(shoppingListName==null)
             message = "";
         else
-            message = name.getString("name");
+            message = shoppingListName;
 
         listNameTextView = (TextView) findViewById(R.id.listNameTextView);
         listNameTextView.setText(message);

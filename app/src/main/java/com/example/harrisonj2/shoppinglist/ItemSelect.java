@@ -63,6 +63,10 @@ public class ItemSelect extends AppCompatActivity {
     public void deleteButton(View view){
         dbHandler.deleteItem(itemID);
         intent = new Intent(this, openListActivity.class);
+        intent.putExtra("shoppingListID", listID);
+        intent.putExtra("shoppingListName", listName);
+        intent.putExtra("shoppingListStore", listStore);
+        intent.putExtra("shoppingListDate", listDate);
         startActivity(intent);
     }
 
