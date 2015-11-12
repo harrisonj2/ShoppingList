@@ -64,6 +64,7 @@ public class openListActivity extends AppCompatActivity {
                         i.putExtra("itemID", item.getId());
                         i.putExtra("itemName", item.getItemName());
                         i.putExtra("itemQuantity", item.getQuantity());
+                        i.putExtra("itemECost", item.geteCost());
                         i.putExtra("itemPurchased", item.getPurchased());
                         i.putExtra("listID", item.getListId());
 
