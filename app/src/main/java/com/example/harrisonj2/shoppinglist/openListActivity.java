@@ -67,6 +67,10 @@ public class openListActivity extends AppCompatActivity {
                         i.putExtra("itemECost", item.geteCost());
                         i.putExtra("itemPurchased", item.getPurchased());
                         i.putExtra("listID", item.getListId());
+                        i.putExtra("shoppingListID", shoppingListID);
+                        i.putExtra("shoppingListName", shoppingListName);
+                        i.putExtra("shoppingListStore", shoppingListStore);
+                        i.putExtra("shoppingListDate", shoppingListDate);
 
                         startActivity(i);
                     }

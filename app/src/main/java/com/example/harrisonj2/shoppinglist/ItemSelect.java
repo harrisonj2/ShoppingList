@@ -13,7 +13,7 @@ public class ItemSelect extends AppCompatActivity {
 
     Intent intent;
     int itemID, listID;
-    String itemName, itemQuantity, itemECost, itemPurchased;
+    String itemName, itemQuantity, itemECost, itemPurchased, listName, listStore, listDate;
 
     private Items item;
     DBHandler dbHandler;
@@ -32,6 +32,9 @@ public class ItemSelect extends AppCompatActivity {
             itemECost = extras.getString("itemECost");
             itemPurchased = extras.getString("itemPurchased");
             listID = extras.getInt("listID");
+            listName = extras.getString("shoppingListName");
+            listStore = extras.getString("shoppingListStore");
+            listDate = extras.getString("shoppingListDate");
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,6 +53,10 @@ public class ItemSelect extends AppCompatActivity {
     public void gotButton(View view){
         dbHandler.gotItem(itemID);
         intent = new Intent(this, openListActivity.class);
+        intent.putExtra("shoppingListID", listID);
+        intent.putExtra("shoppingListName", listName);
+        intent.putExtra("shoppingListStore", listStore);
+        intent.putExtra("shoppingListDate", listDate);
         startActivity(intent);
     }
 
