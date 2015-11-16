@@ -39,7 +39,6 @@ public class ViewListActivity extends AppCompatActivity {
         }
 
         ListView listView = (ListView) findViewById(R.id.shoppingListView);
-
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(
@@ -70,8 +69,5 @@ public class ViewListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
     }
-
-
 }

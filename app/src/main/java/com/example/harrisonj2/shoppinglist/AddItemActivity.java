@@ -13,14 +13,14 @@ import android.widget.Toast;
 
 public class AddItemActivity extends AppCompatActivity {
 
-    TextView listNameTextView;
-
     EditText itemNameEditText;
     EditText quantityEditText;
     EditText estCostEditText;
 
     int shoppingListID;
     String shoppingListName;
+    String shoppingListStore;
+    String shoppingListDate;
 
     DBHandler dbHandler;
     Intent intent;
@@ -34,6 +34,8 @@ public class AddItemActivity extends AppCompatActivity {
         if(extras != null) {
             shoppingListID = extras.getInt("shoppingListID");
             shoppingListName = extras.getString("shoppingListName");
+            shoppingListStore = extras.getString("shoppingListStore");
+            shoppingListDate = extras.getString("shoppingListDate");
         }
 
         itemNameEditText = (EditText) findViewById(R.id.itemNameEditText);
@@ -42,16 +44,8 @@ public class AddItemActivity extends AppCompatActivity {
 
         dbHandler = new DBHandler(this, null);
 
-        String message;
-        listNameTextView = (TextView) findViewById(R.id.listNameTextView);
-
-        if(shoppingListName==null)
-            message = "";
-        else
-            message = shoppingListName;
-
-        listNameTextView = (TextView) findViewById(R.id.listNameTextView);
-        listNameTextView.setText(message);
+        TextView listNameTextView = (TextView) findViewById(R.id.listNameTextView);
+        listNameTextView.setText(shoppingListName);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -83,6 +77,8 @@ public class AddItemActivity extends AppCompatActivity {
         intent = new Intent(this, openListActivity.class);
         intent.putExtra("shoppingListID", shoppingListID);
         intent.putExtra("shoppingListName", shoppingListName);
+        intent.putExtra("shoppingListStore", shoppingListStore);
+        intent.putExtra("shoppingListDate", shoppingListDate);
         startActivity(intent);
     }
 }

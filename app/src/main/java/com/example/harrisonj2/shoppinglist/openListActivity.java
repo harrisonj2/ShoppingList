@@ -21,7 +21,7 @@ public class openListActivity extends AppCompatActivity {
     String shoppingListStore;
     String shoppingListDate;
 
-    private Items[] listData;
+    private Items[] itemData;
     private Items item;
     DBHandler dbHandler;
     ListAdapter adapter;
@@ -43,10 +43,10 @@ public class openListActivity extends AppCompatActivity {
 
         String[] noLists = {"No items Found"};
 
-        listData = dbHandler.getItems(shoppingListID);
+        itemData = dbHandler.getItems(shoppingListID);
 
-        if (listData != null) {
-            adapter = new ViewItemAdapter(this, listData);
+        if (itemData != null) {
+            adapter = new ViewItemAdapter(this, itemData);
         } else {
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noLists);
         }
@@ -97,6 +97,8 @@ public class openListActivity extends AppCompatActivity {
         intent = new Intent(this, AddItemActivity.class);
         intent.putExtra("shoppingListID", shoppingListID);
         intent.putExtra("shoppingListName", shoppingListName);
+        intent.putExtra("shoppingListStore", shoppingListStore);
+        intent.putExtra("shoppingListDate", shoppingListDate);
         startActivity(intent);
     }
 
