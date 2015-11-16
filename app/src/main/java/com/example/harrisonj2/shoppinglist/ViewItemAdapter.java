@@ -17,6 +17,7 @@ public class ViewItemAdapter extends ArrayAdapter<Items> {
     TextView nameTextView;
     TextView quantityTextView;
     TextView costTextView;
+    TextView purchasedTextView;
 
     public ViewItemAdapter(Context context, Items[] objects){
         super(context, R.layout.item_rows, objects);
@@ -33,11 +34,13 @@ public class ViewItemAdapter extends ArrayAdapter<Items> {
         nameTextView = (TextView) itemListView.findViewById(R.id.itemNameText);
         quantityTextView = (TextView) itemListView.findViewById(R.id.itemQuantityText);
         costTextView = (TextView) itemListView.findViewById(R.id.itemCostText);
+        purchasedTextView = (TextView) itemListView.findViewById(R.id.purchasedTextView);
 
         itemId = items.getId();
         nameTextView.setText(items.getItemName());
         quantityTextView.setText(items.getQuantity());
         costTextView.setText(items.geteCost());
+        purchasedTextView.setText(items.getPurchased());
 
         return itemListView;
     }
