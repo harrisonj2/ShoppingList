@@ -79,7 +79,7 @@ public class DBHandler extends SQLiteOpenHelper {
         value.put(COLUMN_ITEMNAME, itemName);
         value.put(COLUMN_QUANTITY, quantity);
         value.put(COLUMN_ECOST, eCost);
-        value.put(COLUMN_GOTTEN, false);
+        value.put(COLUMN_GOTTEN, "false");
         value.put(COLUMN_LISTID, listId);
 
         SQLiteDatabase db = getWritableDatabase();
@@ -139,13 +139,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return itemData;
     }
 
-    public ShoppingList getShoppingList() {
-        SQLiteDatabase db = getWritableDatabase();
-
-
-        return null;
-    }
-
     public void deleteShoppingList(int id) {
 
         String query = "DELETE FROM " + TABLE_LIST + " WHERE " + COLUMN_LISTID + " = " + id;
@@ -167,7 +160,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public void gotItem(int id){
-        String query = "UPDATE " + COLUMN_GOTTEN + " FROM " + TABLE_ITEM + " WHERE " +
+        String query = "UPDATE " + TABLE_ITEM + " SET " + COLUMN_GOTTEN + " = \"true\" " + " WHERE " +
                 COLUMN_ITEMID + " = " + id;
 
         SQLiteDatabase db = getWritableDatabase();
