@@ -16,11 +16,7 @@ public class ItemSelect extends AppCompatActivity {
     int itemID, listID;
     String itemName, itemQuantity, itemECost, itemPurchased, listName, listStore, listDate;
 
-    private Items item;
     DBHandler dbHandler;
-    ListAdapter adapter;
-
-    TextView listNameTextView, itemNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +36,10 @@ public class ItemSelect extends AppCompatActivity {
             listDate = extras.getString("shoppingListDate");
         }
 
-        listNameTextView = (TextView) findViewById(R.id.listNameTextView);
+        TextView listNameTextView = (TextView) findViewById(R.id.listNameTextView);
         listNameTextView.setText(listName);
 
-        itemNameTextView = (TextView) findViewById(R.id.itemNameTextView);
+        TextView itemNameTextView = (TextView) findViewById(R.id.itemNameTextView);
         itemNameTextView.setText(itemName);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
