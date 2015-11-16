@@ -23,6 +23,8 @@ public class ItemSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_select);
 
+        dbHandler = new DBHandler(this, null);
+
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             itemID =  extras.getInt("itemID");
@@ -65,7 +67,7 @@ public class ItemSelect extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void deleteItem(View view){
+    public void goodbyeItem(View view){
         dbHandler.deleteItem(itemID);
         intent = new Intent(this, openListActivity.class);
         intent.putExtra("shoppingListID", listID);

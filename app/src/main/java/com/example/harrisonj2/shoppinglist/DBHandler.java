@@ -151,7 +151,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public void deleteItem(int id) {
 
-        String query = "DELETE FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=" + id;
+        String query = "DELETE FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + " = " + id;
 
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(query);
