@@ -109,10 +109,10 @@ public class openListActivity extends AppCompatActivity {
     }
 
     public void calculateCost(View view){
-        int total = 0;
+        double total = 0;
         int position = 0;
         while(position < itemData.length){
-            total += (Integer.parseInt(itemData[position].geteCost()));
+            total += (Double.parseDouble(itemData[position].geteCost()));
         }
     }
 

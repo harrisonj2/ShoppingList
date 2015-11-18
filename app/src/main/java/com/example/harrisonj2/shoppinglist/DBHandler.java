@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by harrisonj2 on 10/29/2015.
  */
 public class DBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "shopppingList.db";
     private static final String TABLE_LIST = "list";
     private static final String TABLE_ITEM = "item";
@@ -59,7 +59,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_ITEM + ", " + TABLE_LIST + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ITEM + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LIST + ";");
         onCreate(db);
     }
 
