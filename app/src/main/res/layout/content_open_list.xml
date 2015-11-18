@@ -25,14 +25,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/itemListView"
-        android:layout_below="@+id/addItemButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,10 +42,9 @@
         android:id="@+id/calculateCostButton"
         android:width="119dp"
         android:height="50dp"
-        android:layout_above="@+id/itemListView"
-        android:layout_toRightOf="@+id/addItemButton"
-        android:layout_toEndOf="@+id/addItemButton"
-        android:onClick="calculateCost" />
+        android:onClick="calculateCost"
+        android:layout_above="@+id/costTextView"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -62,8 +53,23 @@
         android:id="@+id/deleteListButton"
         android:width="119dp"
         android:height="50dp"
-        android:layout_above="@+id/itemListView"
-        android:layout_toRightOf="@+id/calculateCostButton"
-        android:layout_toEndOf="@+id/calculateCostButton"
-        android:onClick="deleteList" />
+        android:onClick="deleteList"
+        android:layout_alignTop="@+id/calculateCostButton"
+        android:layout_toEndOf="@+id/calculateCostButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/costTextView"
+        android:layout_below="@+id/addItemButton"
+        android:layout_toEndOf="@+id/addItemButton" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemListView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/costTextView" />
 </RelativeLayout>

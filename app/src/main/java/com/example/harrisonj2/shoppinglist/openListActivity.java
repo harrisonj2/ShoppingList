@@ -114,6 +114,10 @@ public class openListActivity extends AppCompatActivity {
         while(position < itemData.length){
             total += (Double.parseDouble(itemData[position].geteCost()));
         }
+        Double tot = total;
+        String message = tot.toString();
+        TextView costTextView = (TextView) findViewById(R.id.costTextView);
+        costTextView.setText(message);
     }
 
 }
