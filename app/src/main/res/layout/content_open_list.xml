@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.harrisonj2.shoppinglist.openListActivity"
     tools:showIn="@layout/activity_open_list">
@@ -31,6 +32,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
         android:id="@+id/shoppingListNameTV"
+        android:textColor="@color/white"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp" />

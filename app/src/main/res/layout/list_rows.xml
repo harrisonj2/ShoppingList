@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:weightSum="1">
 
     <TextView
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/shoppingListNameText"
+        android:textColor="@color/white"
         android:padding="10dp"
         android:width="115dp"
         android:maxWidth="115dp" />
@@ -18,6 +20,7 @@
         android:layout_height="wrap_content"
         android:text="StoreName"
         android:id="@+id/storeNameText"
+        android:textColor="@color/white"
         android:padding="10dp"
         android:width="115dp"
         android:maxWidth="115dp" />
@@ -27,6 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Trip Date"
         android:id="@+id/tripDateText"
+        android:textColor="@color/white"
         android:padding="10dp"
         android:width="115dp"
         android:maxWidth="115dp"/>
