@@ -29,20 +29,10 @@ public class openListActivity extends AppCompatActivity {
     DBHandler dbHandler;
     ListAdapter adapter;
 
-    NotificationCompat.Builder notification;
-    private static final int uniqueID = 456852;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_list);
-
-        notification = new NotificationCompat.Builder(this);
-        notification.setAutoCancel(true);
-
-        if(allGotten(this)){
-            notification(this);
-        }
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
@@ -126,6 +116,7 @@ public class openListActivity extends AppCompatActivity {
         int position = 0;
         while(position < itemData.length){
             total += (Double.parseDouble(itemData[position].geteCost()));
+            position++;
         }
         Double tot = total;
         String message = tot.toString();
@@ -133,33 +124,5 @@ public class openListActivity extends AppCompatActivity {
         costTextView.setText(message);
     }
 
-    public void notification(openListActivity view){
-        notification.setSmallIcon(R.mipmap.ic_launcher);
-        notification.setTicker("List Complete");
-        notification.setWhen(System.currentTimeMillis());
-        notification.setContentTitle("List Complete");
-        notification.setContentText("All items in " + shoppingListName + " have been purchased.");
 
-        intent = new Intent(this, ViewListActivity.class);
-        PendingIntent pend = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        notification.setContentIntent(pend);
-
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(uniqueID, notification.build());
-    }
-
-    public boolean allGotten(openListActivity view){
-        boolean gotten = true;
-
-        if(itemData != null){
-            for (int i = 0; i < itemData.length; i++){
-                if(itemData[i].getPurchased().equals("false"))
-                    gotten = false;
-            }
-        }else
-            gotten = false;
-
-
-        return gotten;
-    }
 }
