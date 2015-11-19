@@ -1,14 +1,18 @@
 package com.example.harrisonj2.shoppinglist;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ItemSelect extends AppCompatActivity {
 
@@ -59,6 +63,20 @@ public class ItemSelect extends AppCompatActivity {
 
     public void gotItem(View view){
         dbHandler.gotItem(itemID);
+
+        Items[] gottenItems = dbHandler.getNotGottenItems(listID);
+
+        if(gottenItems == null) {
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.mipmap.ic_launcher)
+                            .setContentTitle("Shopping list")
+                            .setContentText(listName + " completed!");
+
+            Notification notification = mBuilder.build();
+            notification.notify();
+        }
+
         intent = new Intent(this, openListActivity.class);
         intent.putExtra("shoppingListID", listID);
         intent.putExtra("shoppingListName", listName);

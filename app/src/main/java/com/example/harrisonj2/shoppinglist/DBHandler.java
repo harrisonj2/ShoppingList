@@ -140,6 +140,35 @@ public class DBHandler extends SQLiteOpenHelper {
         return itemData;
     }
 
+    public Items[] getNotGottenItems(int listId) {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEM +
+                " WHERE " + COLUMN_LISTID + " = " + listId + " AND " + COLUMN_GOTTEN + " = 'false'";
+
+        Cursor c = db.rawQuery(query, null);
+        int numOfItems = c.getCount();
+
+        if(numOfItems >= 1){
+            itemData = new Items[numOfItems];
+            int i = 0;
+            c.moveToFirst();
+            while(!c.isAfterLast()){
+                itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
+                        c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
+                        c.getString(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getString(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
+                        c.getInt(c.getColumnIndex(COLUMN_LISTID)));
+
+                c.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+
+        return itemData;
+    }
+
     public void deleteShoppingList(int id) {
 
         String query = "DELETE FROM " + TABLE_LIST + " WHERE " + COLUMN_LISTID + " = " + id;
