@@ -59,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/itemNameEditText"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:width="200dp" />
         </TableRow>
@@ -82,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/quantityEditText"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:width="200dp" />
         </TableRow>
@@ -105,6 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/estCostEditText"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:width="200dp" />
         </TableRow>

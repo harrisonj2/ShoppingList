@@ -48,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/listNameEditText"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:width="200dp" />
         </TableRow>
@@ -71,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/storeNameEditText"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:width="200dp" />
         </TableRow>
@@ -94,6 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/dateEditText"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:width="200dp" />
         </TableRow>
