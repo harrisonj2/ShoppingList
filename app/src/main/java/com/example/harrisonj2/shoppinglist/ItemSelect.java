@@ -2,6 +2,7 @@ package com.example.harrisonj2.shoppinglist;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -67,22 +68,37 @@ public class ItemSelect extends AppCompatActivity {
         Items[] gottenItems = dbHandler.getNotGottenItems(listID);
 
         if(gottenItems == null) {
-            NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(this)
-                            .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle("Shopping list")
-                            .setContentText(listName + " completed!");
+            //Build notification
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setContentTitle("Shopping List");
+            builder.setContentText(listName + " completed!");
 
-            Notification notification = mBuilder.build();
-            notification.notify();
+            //Store Extras
+            intent = new Intent(this, openListActivity.class);
+            intent.putExtra("shoppingListID", listID);
+            intent.putExtra("shoppingListName", listName);
+            intent.putExtra("shoppingListStore", listStore);
+            intent.putExtra("shoppingListDate", listDate);
+
+            //Build notification intent
+            PendingIntent pendingintent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setContentIntent(pendingintent);
+
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nm.notify(2142, builder.build());
+            startActivity(intent);
+
+
+        } else {
+
+            intent = new Intent(this, openListActivity.class);
+            intent.putExtra("shoppingListID", listID);
+            intent.putExtra("shoppingListName", listName);
+            intent.putExtra("shoppingListStore", listStore);
+            intent.putExtra("shoppingListDate", listDate);
+            startActivity(intent);
         }
-
-        intent = new Intent(this, openListActivity.class);
-        intent.putExtra("shoppingListID", listID);
-        intent.putExtra("shoppingListName", listName);
-        intent.putExtra("shoppingListStore", listStore);
-        intent.putExtra("shoppingListDate", listDate);
-        startActivity(intent);
     }
 
     public void goodbyeItem(View view){
