@@ -31,52 +31,56 @@
         android:layout_below="@+id/listNameTextView"
         android:layout_centerHorizontal="true" />
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ImageButton
+        android:src="@drawable/p_delete"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gotButton"
+        android:layout_column="1"
+        android:onClick="gotItem"
+        android:width="150dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_above="@+id/deleteItemText"
+        android:layout_alignStart="@+id/gotItemText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Got item"
+        android:id="@+id/gotItemText"
+        android:layout_column="1"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/gotButton"
+        android:layout_toStartOf="@+id/deleteItemText" />
+
+    <ImageButton
+        android:src="@drawable/p_check"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteButton"
+        android:layout_column="23"
+        android:onClick="goodbyeItem"
+        android:width="150dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="105dp"
         android:layout_below="@+id/itemNameTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="49dp">
+        android:layout_alignStart="@+id/deleteItemText" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:id="@+id/deleteButton"
-                android:layout_column="0"
-                android:layout_margin="5dp"
-                android:onClick="goodbyeItem"
-                android:width="150dp" />
-
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Got this Item"
-                android:id="@+id/gotButton"
-                android:layout_column="1"
-                android:layout_margin="5dp"
-                android:onClick="gotItem"
-                android:width="150dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-    </TableLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete item"
+        android:id="@+id/deleteItemText"
+        android:layout_column="1"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/deleteButton"
+        android:layout_alignStart="@+id/listNameTextView"
+        android:layout_marginStart="67dp" />
 
 </RelativeLayout>

@@ -104,5 +104,5 @@
         android:id="@+id/deleteListText"
         android:textColor="#ffffff"
         android:layout_below="@+id/deleteListButton"
-        android:layout_alignStart="@+id/deleteListButton" />
+        android:layout_alignEnd="@+id/deleteListButton" />
 </RelativeLayout>
