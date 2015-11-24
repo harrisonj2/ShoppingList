@@ -33,7 +33,7 @@
         android:id="@+id/shoppingListNameTV"
         android:textColor="@color/white"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/costTextView" />
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:src="@drawable/p_remove"
@@ -45,7 +45,7 @@
         android:width="119dp"
         android:height="50dp"
         android:onClick="calculateCost"
-        android:layout_above="@+id/costTextView"
+        android:layout_above="@+id/addItemText"
         android:layout_centerHorizontal="true" />
 
     <ImageButton
@@ -66,17 +66,18 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/costTextView"
         android:textColor="@color/white"
-        android:layout_below="@+id/addItemButton"
-        android:layout_toEndOf="@+id/addItemButton" />
+        android:text="24214"
+        android:layout_below="@+id/calculateCostText"
+        android:layout_centerHorizontal="true" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/itemListView"
         android:textColor="@color/white"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/costTextView" />
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/costTextView"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
