@@ -14,13 +14,11 @@
     tools:showIn="@layout/activity_open_list">
 
     <ImageButton
-        android:src=""
+        android:src="@drawable/p_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/addItem"
         android:id="@+id/addItemButton"
-        android:width="119dp"
-        android:height="50dp"
         android:onClick="goToAddItem"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/shoppingListNameTV"
