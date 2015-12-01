@@ -17,9 +17,13 @@ public class ViewListActivity extends AppCompatActivity {
     private ShoppingList[] listData;
     private ShoppingList shoppingList;
 
+    //0 = name
+    //1 = store
+    //2 = date
+    int orderByLists;
     DBHandler dbHandler;
     ListAdapter adapter;
-
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,20 @@ public class ViewListActivity extends AppCompatActivity {
 
         String[] noLists = {"No Shopping Lists Found"};
 
-        listData = dbHandler.getShoppingLists();
+        switch(orderByLists){
+            case 0 :
+                listData = dbHandler.getListName();
+                break;
+            case 1 :
+                listData = dbHandler.getListStore();
+                break;
+            case 2 :
+                listData = dbHandler.getListDate();
+                break;
+            default :
+                listData = dbHandler.getShoppingLists();
+                break;
+        }
 
         if (listData != null) {
             adapter = new ViewListAdapter(this, listData);
@@ -52,6 +69,7 @@ public class ViewListActivity extends AppCompatActivity {
                         i.putExtra("shoppingListName", shoppingList.getListName());
                         i.putExtra("shoppingListStore", shoppingList.getStoreName());
                         i.putExtra("shoppingListDate", shoppingList.getTripDate());
+                        i.putExtra("orderBy", 0);
 
                         startActivity(i);
                     }
@@ -69,5 +87,23 @@ public class ViewListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void orderByName(View view){
+        intent = new Intent(this, ViewListActivity.class);
+        intent.putExtra("orderBy", 0);
+        startActivity(intent);
+    }
+
+    public void orderByStore(View view){
+        intent = new Intent(this, ViewListActivity.class);
+        intent.putExtra("orderBy", 1);
+        startActivity(intent);
+    }
+
+    public void orderByDate(View view){
+        intent = new Intent(this, ViewListActivity.class);
+        intent.putExtra("orderBy", 2);
+        startActivity(intent);
     }
 }

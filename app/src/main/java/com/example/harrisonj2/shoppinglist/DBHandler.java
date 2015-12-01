@@ -111,10 +111,172 @@ public class DBHandler extends SQLiteOpenHelper {
         return listData;
     }
 
+    public ShoppingList[] getListName() {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_LIST +
+                " ORDER BY " + COLUMN_LISTNAME + " ASC;";
+        Cursor cur = db.rawQuery(query, null);
+        int numOfLists = cur.getCount();
+
+        if (numOfLists >= 1) {
+            listData = new ShoppingList[numOfLists];
+            int i = 0;
+            cur.moveToFirst();
+            while (!cur.isAfterLast()) {
+                listData[i] = new ShoppingList(cur.getInt(cur.getColumnIndex(COLUMN_LISTID)),
+                        cur.getString(cur.getColumnIndex(COLUMN_LISTNAME)),
+                        cur.getString(cur.getColumnIndex(COLUMN_STORENNAME)),
+                        cur.getString(cur.getColumnIndex(COLUMN_TRIPDATE)));
+                cur.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+        return listData;
+    }
+
+    public ShoppingList[] getListStore() {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_LIST +
+                " ORDER BY " + COLUMN_STORENNAME + " ASC;";
+        Cursor cur = db.rawQuery(query, null);
+        int numOfLists = cur.getCount();
+
+        if (numOfLists >= 1) {
+            listData = new ShoppingList[numOfLists];
+            int i = 0;
+            cur.moveToFirst();
+            while (!cur.isAfterLast()) {
+                listData[i] = new ShoppingList(cur.getInt(cur.getColumnIndex(COLUMN_LISTID)),
+                        cur.getString(cur.getColumnIndex(COLUMN_LISTNAME)),
+                        cur.getString(cur.getColumnIndex(COLUMN_STORENNAME)),
+                        cur.getString(cur.getColumnIndex(COLUMN_TRIPDATE)));
+                cur.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+        return listData;
+    }
+
+    public ShoppingList[] getListDate() {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_LIST +
+                " ORDER BY " + COLUMN_TRIPDATE + " ASC;";
+        Cursor cur = db.rawQuery(query, null);
+        int numOfLists = cur.getCount();
+
+        if (numOfLists >= 1) {
+            listData = new ShoppingList[numOfLists];
+            int i = 0;
+            cur.moveToFirst();
+            while (!cur.isAfterLast()) {
+                listData[i] = new ShoppingList(cur.getInt(cur.getColumnIndex(COLUMN_LISTID)),
+                        cur.getString(cur.getColumnIndex(COLUMN_LISTNAME)),
+                        cur.getString(cur.getColumnIndex(COLUMN_STORENNAME)),
+                        cur.getString(cur.getColumnIndex(COLUMN_TRIPDATE)));
+                cur.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+        return listData;
+    }
+
     public Items[] getItems(int listId){
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_ITEM +
                 " WHERE " + COLUMN_LISTID + " = " + listId;
+
+        Cursor c = db.rawQuery(query, null);
+        int numOfItems = c.getCount();
+
+        if(numOfItems >= 1){
+            itemData = new Items[numOfItems];
+            int i = 0;
+            c.moveToFirst();
+            while(!c.isAfterLast()){
+                itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
+                        c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
+                        c.getInt(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getDouble(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
+                        c.getInt(c.getColumnIndex(COLUMN_LISTID)));
+
+                c.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+
+        return itemData;
+    }
+
+    public Items[] getItemsName(int listId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEM +
+                " WHERE " + COLUMN_LISTID + " = " + listId +
+                " ORDER BY " + COLUMN_ITEMNAME + " ASC;";
+
+        Cursor c = db.rawQuery(query, null);
+        int numOfItems = c.getCount();
+
+        if(numOfItems >= 1){
+            itemData = new Items[numOfItems];
+            int i = 0;
+            c.moveToFirst();
+            while(!c.isAfterLast()){
+                itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
+                        c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
+                        c.getInt(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getDouble(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
+                        c.getInt(c.getColumnIndex(COLUMN_LISTID)));
+
+                c.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+
+        return itemData;
+    }
+
+    public Items[] getItemsQuantity(int listId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEM +
+                " WHERE " + COLUMN_LISTID + " = " + listId +
+                " ORDER BY " + COLUMN_QUANTITY + " ASC;";
+
+        Cursor c = db.rawQuery(query, null);
+        int numOfItems = c.getCount();
+
+        if(numOfItems >= 1){
+            itemData = new Items[numOfItems];
+            int i = 0;
+            c.moveToFirst();
+            while(!c.isAfterLast()){
+                itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
+                        c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
+                        c.getInt(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getDouble(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
+                        c.getInt(c.getColumnIndex(COLUMN_LISTID)));
+
+                c.moveToNext();
+                i++;
+            }
+        }
+        db.close();
+
+        return itemData;
+    }
+
+    public Items[] getItemsCost(int listId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEM +
+                " WHERE " + COLUMN_LISTID + " = " + listId +
+                " ORDER BY " + COLUMN_ECOST + " ASC;";
 
         Cursor c = db.rawQuery(query, null);
         int numOfItems = c.getCount();

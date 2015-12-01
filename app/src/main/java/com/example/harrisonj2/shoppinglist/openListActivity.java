@@ -21,6 +21,12 @@ public class openListActivity extends AppCompatActivity {
     String shoppingListStore;
     String shoppingListDate;
 
+    //0 = itemID
+    //1 = name
+    //2 = quantity
+    //3 = cost
+    int orderByItems;
+
     private Items[] itemData;
     private Items item;
     DBHandler dbHandler;
@@ -37,13 +43,31 @@ public class openListActivity extends AppCompatActivity {
             shoppingListName = extras.getString("shoppingListName");
             shoppingListStore = extras.getString("shoppingListStore");
             shoppingListDate = extras.getString("shoppingListDate");
+            orderByItems = extras.getInt("orderBy");
         }
 
         dbHandler = new DBHandler(this, null);
 
         String[] noLists = {"No items Found"};
 
-        itemData = dbHandler.getItems(shoppingListID);
+        switch(orderByItems){
+            case 0 :
+                itemData = dbHandler.getItems(shoppingListID);
+                break;
+            case 1 :
+                itemData = dbHandler.getItemsName(shoppingListID);
+                break;
+            case 2 :
+                itemData = dbHandler.getItemsQuantity(shoppingListID);
+                break;
+            case 3 :
+                itemData = dbHandler.getItemsCost(shoppingListID);
+                break;
+            default :
+                itemData = dbHandler.getItems(shoppingListID);
+                break;
+        }
+
 
         if (itemData != null) {
             adapter = new ViewItemAdapter(this, itemData);
@@ -119,5 +143,33 @@ public class openListActivity extends AppCompatActivity {
         costTextView.setText(total.toString());
     }
 
+    public void orderByNames(View view){
+        intent = new Intent(this, openListActivity.class);
+        intent.putExtra("shoppingListID", shoppingListID);
+        intent.putExtra("shoppingListName", shoppingListName);
+        intent.putExtra("shoppingListStore", shoppingListStore);
+        intent.putExtra("shoppingListDate", shoppingListDate);
+        intent.putExtra("orderBy", 1);
+        startActivity(intent);
+    }
 
+    public void orderByQuantity(View view){
+        intent = new Intent(this, openListActivity.class);
+        intent.putExtra("shoppingListID", shoppingListID);
+        intent.putExtra("shoppingListName", shoppingListName);
+        intent.putExtra("shoppingListStore", shoppingListStore);
+        intent.putExtra("shoppingListDate", shoppingListDate);
+        intent.putExtra("orderBy", 2);
+        startActivity(intent);
+    }
+
+    public void orderByCost(View view){
+        intent = new Intent(this, openListActivity.class);
+        intent.putExtra("shoppingListID", shoppingListID);
+        intent.putExtra("shoppingListName", shoppingListName);
+        intent.putExtra("shoppingListStore", shoppingListStore);
+        intent.putExtra("shoppingListDate", shoppingListDate);
+        intent.putExtra("orderBy", 3);
+        startActivity(intent);
+    }
 }
