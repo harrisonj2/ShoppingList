@@ -135,10 +135,16 @@ public class openListActivity extends AppCompatActivity {
     public void calculateCost(View view){
         Double total = 0.0;
         int position = 0;
-        while(position < itemData.length) {
-            total += itemData[position].geteCost();
-            position++;
+        if(itemData.length == 0){
+            total = 0.0;
+        }else{
+            while(position < itemData.length) {
+                total += itemData[position].geteCost();
+                position++;
+            }
         }
+
+
         TextView costTextView = (TextView) findViewById(R.id.costTextView);
         costTextView.setText(total.toString());
     }
