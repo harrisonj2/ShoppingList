@@ -116,7 +116,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
+                android:src="@drawable/p_plus"
+                android:background="@color/background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Data"
@@ -129,13 +131,45 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Add Item"
+                android:id="@+id/addItemText2"
+                android:layout_column="1"
+                android:textColor="#ffffff"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:src="@drawable/p_back"
+                android:background="@color/background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Go Back"
                 android:id="@+id/goBackButton"
                 android:layout_column="1"
                 android:onClick="goBack" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Go Back"
+                android:id="@+id/goBackText2"
+                android:layout_column="1"
+                android:textColor="#ffffff"
+                android:textAlignment="center" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>
