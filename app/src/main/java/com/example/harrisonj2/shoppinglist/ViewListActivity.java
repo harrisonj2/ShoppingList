@@ -113,7 +113,7 @@ public class ViewListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goBack(View view){
+    public void goBackCreate(View view){
         intent = new Intent(this, CreateListActivity.class);
         startActivity(intent);
     }

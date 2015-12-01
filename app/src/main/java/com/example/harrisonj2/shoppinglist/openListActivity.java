@@ -180,7 +180,7 @@ public class openListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goBack(View view){
+    public void goBackView(View view){
         intent = new Intent(this, ViewListActivity.class);
         startActivity(intent);
     }
