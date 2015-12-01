@@ -29,6 +29,7 @@ public class ItemSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_select);
+        setTitle("Item");
 
         dbHandler = new DBHandler(this, null);
 

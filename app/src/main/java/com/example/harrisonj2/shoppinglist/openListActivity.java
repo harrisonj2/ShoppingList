@@ -36,6 +36,7 @@ public class openListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_list);
+        setTitle("List");
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {

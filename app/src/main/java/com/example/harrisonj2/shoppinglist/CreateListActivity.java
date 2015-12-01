@@ -25,6 +25,7 @@ public class CreateListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_list);
+        setTitle("Create List");
 
         listNameEditText = (EditText) findViewById(R.id.listNameEditText);
         storeNameEditText = (EditText) findViewById(R.id.storeNameEditText);

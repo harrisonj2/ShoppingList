@@ -29,6 +29,7 @@ public class ViewListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_list);
+        setTitle("Lists");
 
         dbHandler = new DBHandler(this, null);
 
