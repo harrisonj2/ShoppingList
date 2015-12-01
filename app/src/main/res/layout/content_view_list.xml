@@ -17,8 +17,75 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/shoppingListView"
+        android:choiceMode="singleChoice"
+        android:layout_below="@+id/sortByNameButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
+
+    <ImageButton
+        android:src="@drawable/p_name"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by Name"
+        android:id="@+id/sortByNameButton"
+        android:nestedScrollingEnabled="false"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:choiceMode="singleChoice" />
+        android:onClick="orderByName" />
+
+    <ImageButton
+        android:src="@drawable/p_store"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by quantity"
+        android:id="@+id/sortByQuantityButton"
+        android:layout_above="@+id/shoppingListView"
+        android:layout_centerHorizontal="true"
+        android:onClick="orderByStore" />
+
+    <ImageButton
+        android:src="@drawable/p_date"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sortByCostButton"
+        android:text="Sort by cost"
+        android:layout_above="@+id/shoppingListView"
+        android:layout_alignEnd="@+id/shoppingListView"
+        android:onClick="orderByDate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sort by name"
+        android:id="@+id/sortByNameText3"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/sortByNameButton"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sort by store"
+        android:id="@+id/sortByStoreText2"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/sortByQuantityButton"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sort by date"
+        android:id="@+id/sortByDateText2"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/sortByCostButton"
+        android:layout_alignEnd="@+id/sortByCostButton" />
 </RelativeLayout>

@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/itemListView"
         android:textColor="@color/white"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="102dp"
         android:layout_below="@+id/costTextView"
         android:layout_alignParentEnd="true" />
 
@@ -104,4 +104,71 @@
         android:textColor="#ffffff"
         android:layout_below="@+id/deleteListButton"
         android:layout_alignEnd="@+id/deleteListButton" />
+
+    <ImageButton
+        android:src="@drawable/p_name"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by Name"
+        android:id="@+id/sortByNameButton"
+        android:layout_below="@+id/costTextView"
+        android:layout_alignStart="@+id/addItemText"
+        android:nestedScrollingEnabled="false"
+        android:onClick="orderByNames" />
+
+    <ImageButton
+        android:src="@drawable/p_quantity"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by quantity"
+        android:id="@+id/sortByQuantityButton"
+        android:layout_alignTop="@+id/sortByNameButton"
+        android:layout_toEndOf="@+id/addItemButton"
+        android:onClick="orderByQuantity" />
+
+    <ImageButton
+        android:src="@drawable/p_cost"
+        android:background="@color/background"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sortByCostButton"
+        android:text="Sort by cost"
+        android:layout_alignTop="@+id/sortByNameButton"
+        android:layout_alignEnd="@+id/deleteListText"
+        android:onClick="orderByCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sort by names"
+        android:id="@+id/sortByNameText2"
+        android:layout_below="@+id/sortByNameButton"
+        android:layout_alignEnd="@+id/sortByNameButton"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sort by quantity"
+        android:id="@+id/sortByQuantity2"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/sortByQuantityButton"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sort by cost"
+        android:id="@+id/sortByCostText2"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/sortByCostButton"
+        android:layout_alignStart="@+id/deleteListText" />
 </RelativeLayout>
