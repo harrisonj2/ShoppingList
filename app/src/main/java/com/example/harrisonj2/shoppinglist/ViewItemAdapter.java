@@ -38,7 +38,7 @@ public class ViewItemAdapter extends ArrayAdapter<Items> {
 
         itemId = items.getId();
         nameTextView.setText(items.getItemName());
-        quantityTextView.setText(items.getQuantity());
+        quantityTextView.setText(String.valueOf(items.getQuantity()));
         Double cost = items.geteCost();
         costTextView.setText(cost.toString());
         purchasedTextView.setText(items.getPurchased());

@@ -34,6 +34,11 @@ public class ViewListActivity extends AppCompatActivity {
 
         String[] noLists = {"No Shopping Lists Found"};
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            orderByLists = extras.getInt("orderByList");
+        }
+
         switch(orderByLists){
             case 0 :
                 listData = dbHandler.getListName();
@@ -69,7 +74,7 @@ public class ViewListActivity extends AppCompatActivity {
                         i.putExtra("shoppingListName", shoppingList.getListName());
                         i.putExtra("shoppingListStore", shoppingList.getStoreName());
                         i.putExtra("shoppingListDate", shoppingList.getTripDate());
-                        i.putExtra("orderBy", 0);
+                        i.putExtra("orderByItem", 0);
 
                         startActivity(i);
                     }
@@ -91,19 +96,19 @@ public class ViewListActivity extends AppCompatActivity {
 
     public void orderByName(View view){
         intent = new Intent(this, ViewListActivity.class);
-        intent.putExtra("orderBy", 0);
+        intent.putExtra("orderByList", 0);
         startActivity(intent);
     }
 
     public void orderByStore(View view){
         intent = new Intent(this, ViewListActivity.class);
-        intent.putExtra("orderBy", 1);
+        intent.putExtra("orderByList", 1);
         startActivity(intent);
     }
 
     public void orderByDate(View view){
         intent = new Intent(this, ViewListActivity.class);
-        intent.putExtra("orderBy", 2);
+        intent.putExtra("orderByList", 2);
         startActivity(intent);
     }
 }

@@ -43,7 +43,7 @@ public class openListActivity extends AppCompatActivity {
             shoppingListName = extras.getString("shoppingListName");
             shoppingListStore = extras.getString("shoppingListStore");
             shoppingListDate = extras.getString("shoppingListDate");
-            orderByItems = extras.getInt("orderBy");
+            orderByItems = extras.getInt("orderByItem");
         }
 
         dbHandler = new DBHandler(this, null);
@@ -149,7 +149,7 @@ public class openListActivity extends AppCompatActivity {
         intent.putExtra("shoppingListName", shoppingListName);
         intent.putExtra("shoppingListStore", shoppingListStore);
         intent.putExtra("shoppingListDate", shoppingListDate);
-        intent.putExtra("orderBy", 1);
+        intent.putExtra("orderByItem", 1);
         startActivity(intent);
     }
 
@@ -159,7 +159,7 @@ public class openListActivity extends AppCompatActivity {
         intent.putExtra("shoppingListName", shoppingListName);
         intent.putExtra("shoppingListStore", shoppingListStore);
         intent.putExtra("shoppingListDate", shoppingListDate);
-        intent.putExtra("orderBy", 2);
+        intent.putExtra("orderByItem", 2);
         startActivity(intent);
     }
 
@@ -169,7 +169,7 @@ public class openListActivity extends AppCompatActivity {
         intent.putExtra("shoppingListName", shoppingListName);
         intent.putExtra("shoppingListStore", shoppingListStore);
         intent.putExtra("shoppingListDate", shoppingListDate);
-        intent.putExtra("orderBy", 3);
+        intent.putExtra("orderByItem", 3);
         startActivity(intent);
     }
 }
