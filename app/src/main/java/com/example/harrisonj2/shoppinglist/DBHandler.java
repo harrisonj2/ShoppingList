@@ -64,7 +64,7 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addList(String listName, String storeName, String tripDate){
+    public void addList(String listName, String storeName, long tripDate){
         ContentValues value = new ContentValues();
         value.put(COLUMN_LISTNAME, listName);
         value.put(COLUMN_STORENNAME, storeName);
