@@ -19,7 +19,9 @@ public class ItemSelect extends AppCompatActivity {
 
     Intent intent;
     int itemID, listID;
-    String itemName, itemQuantity, itemECost, itemPurchased, listName, listStore, listDate;
+    String itemName, itemPurchased, listName, listStore, listDate;
+    int itemQuantity;
+    Double itemECost;
 
     DBHandler dbHandler;
 
@@ -34,8 +36,8 @@ public class ItemSelect extends AppCompatActivity {
         if(extras != null) {
             itemID =  extras.getInt("itemID");
             itemName = extras.getString("itemName");
-            itemQuantity = extras.getString("itemQuantity");
-            itemECost = extras.getString("itemECost");
+            itemQuantity = extras.getInt("itemQuantity");
+            itemECost = extras.getDouble("itemECost");
             itemPurchased = extras.getString("itemPurchased");
             listID = extras.getInt("listID");
             listName = extras.getString("shoppingListName");

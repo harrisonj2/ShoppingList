@@ -4,11 +4,12 @@ package com.example.harrisonj2.shoppinglist;
  * Created by harrisonj2 on 10/29/2015.
  */
 public class Items {
-    private int id;
-    private String itemName, quantity, eCost, purchased;
+    private int id, quantity;
+    private String itemName, purchased;
+    private double eCost;
     private int listId;
 
-    public Items(int id, String itemName, String quantity, String eCost, String purchased, int listId){
+    public Items(int id, String itemName, int quantity, double eCost, String purchased, int listId){
         this.id = id;
         this.listId = listId;
         this.itemName = itemName;
@@ -41,19 +42,19 @@ public class Items {
         this.itemName = itemName;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public String geteCost() {
+    public double geteCost() {
         return eCost;
     }
 
-    public void seteCost(String eCost) {
+    public void seteCost(double eCost) {
         this.eCost = eCost;
     }
 

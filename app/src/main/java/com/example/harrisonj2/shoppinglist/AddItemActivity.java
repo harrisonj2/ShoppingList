@@ -62,10 +62,11 @@ public class AddItemActivity extends AppCompatActivity {
 
     public void addItem(View view){
         String name = itemNameEditText.getText().toString();
-        String quantity = quantityEditText.getText().toString();
-        String estCost = estCostEditText.getText().toString();
+        int quantity = Integer.parseInt(quantityEditText.getText().toString());
+        double estCost = Double.parseDouble(estCostEditText.getText().toString());
 
-        if(name.trim().equals("") || quantity.trim().equals("") || estCost.trim().equals("")){
+        if(name.trim().equals("") || quantityEditText.getText().toString().trim().equals("")
+                || estCostEditText.getText().toString().trim().equals("")){
             Toast.makeText(this, "Please enter data into all fields!", Toast.LENGTH_LONG).show();
         }else{
             dbHandler.addItem(name, quantity, estCost, shoppingListID);

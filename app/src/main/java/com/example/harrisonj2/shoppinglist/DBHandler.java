@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by harrisonj2 on 10/29/2015.
  */
 public class DBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "shopppingList.db";
     private static final String TABLE_LIST = "list";
     private static final String TABLE_ITEM = "item";
@@ -44,8 +44,8 @@ public class DBHandler extends SQLiteOpenHelper {
         String query2 = "CREATE TABLE " + TABLE_ITEM + "(" +
                 COLUMN_ITEMID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_ITEMNAME + " TEXT, " +
-                COLUMN_QUANTITY + " TEXT, " +
-                COLUMN_ECOST + " TEXT, " +
+                COLUMN_QUANTITY + " INTEGER, " +
+                COLUMN_ECOST + " DECIMAL(10,2), " +
                 COLUMN_GOTTEN + " TEXT, " +
                 COLUMN_LISTID + " INTEGER " +
                 /*"FOREIGN KEY (" + COLUMN_LISTID + ")" +
@@ -75,7 +75,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addItem(String itemName, String quantity, String eCost, int listId){
+    public void addItem(String itemName, int quantity, double eCost, int listId){
         ContentValues value = new ContentValues();
         value.put(COLUMN_ITEMNAME, itemName);
         value.put(COLUMN_QUANTITY, quantity);
@@ -126,8 +126,8 @@ public class DBHandler extends SQLiteOpenHelper {
             while(!c.isAfterLast()){
                 itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
                         c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
-                        c.getString(c.getColumnIndex(COLUMN_QUANTITY)),
-                        c.getString(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getInt(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getDouble(c.getColumnIndex(COLUMN_ECOST)),
                         c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
                         c.getInt(c.getColumnIndex(COLUMN_LISTID)));
 
@@ -155,8 +155,8 @@ public class DBHandler extends SQLiteOpenHelper {
             while(!c.isAfterLast()){
                 itemData[i] = new Items(c.getInt(c.getColumnIndex(COLUMN_ITEMID)),
                         c.getString(c.getColumnIndex(COLUMN_ITEMNAME)),
-                        c.getString(c.getColumnIndex(COLUMN_QUANTITY)),
-                        c.getString(c.getColumnIndex(COLUMN_ECOST)),
+                        c.getInt(c.getColumnIndex(COLUMN_QUANTITY)),
+                        c.getDouble(c.getColumnIndex(COLUMN_ECOST)),
                         c.getString(c.getColumnIndex(COLUMN_GOTTEN)),
                         c.getInt(c.getColumnIndex(COLUMN_LISTID)));
 
