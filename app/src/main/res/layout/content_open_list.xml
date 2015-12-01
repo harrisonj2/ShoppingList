@@ -66,7 +66,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/costTextView"
         android:textColor="@color/white"
-        android:text="24214"
         android:layout_below="@+id/calculateCostText"
         android:layout_centerHorizontal="true" />
 

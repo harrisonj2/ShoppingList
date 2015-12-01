@@ -29,6 +29,7 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        setTitle("Add Item");
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
