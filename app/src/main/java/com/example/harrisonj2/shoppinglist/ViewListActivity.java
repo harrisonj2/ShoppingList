@@ -111,4 +111,9 @@ public class ViewListActivity extends AppCompatActivity {
         intent.putExtra("orderByList", 2);
         startActivity(intent);
     }
+
+    public void goBack(View view){
+        intent = new Intent(this, CreateListActivity.class);
+        startActivity(intent);
+    }
 }
