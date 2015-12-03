@@ -171,4 +171,28 @@
         android:textColor="#ffffff"
         android:layout_below="@+id/sortByCostButton"
         android:layout_alignStart="@+id/deleteListText" />
+
+    <ImageButton
+        android:src="@drawable/p_back"
+        android:background="@color/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Back"
+        android:id="@+id/imageButton2"
+        android:layout_column="1"
+        android:onClick="goBackView"
+        android:layout_below="@+id/sortByCostText2"
+        android:layout_alignStart="@+id/sortByCostText2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Go Back"
+        android:id="@+id/textView2"
+        android:layout_column="1"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:layout_below="@+id/imageButton2"
+        android:layout_alignEnd="@+id/sortByCostText2" />
 </RelativeLayout>
