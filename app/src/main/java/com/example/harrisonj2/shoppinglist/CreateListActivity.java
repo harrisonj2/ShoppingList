@@ -19,8 +19,6 @@ import java.util.Calendar;
 
 public class CreateListActivity extends AppCompatActivity {
 
-    private Calendar tripDateCalendar;
-
     EditText listNameEditText;
     EditText storeNameEditText;
     EditText dateEditText;
@@ -51,43 +49,6 @@ public class CreateListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        tripDateCalendar = Calendar.getInstance();
-
-        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                // TODO Auto-generated method stub
-                tripDateCalendar.set(Calendar.YEAR, year);
-                tripDateCalendar.set(Calendar.MONTH, monthOfYear);
-                tripDateCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateTripDate();
-            }
-
-        };
-
-        dateEditText.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                new DatePickerDialog(
-                        CreateListActivity.this,
-                        date,
-                        tripDateCalendar.get(Calendar.YEAR),
-                        tripDateCalendar.get(Calendar.MONTH),
-                        tripDateCalendar.get(Calendar.DAY_OF_MONTH)
-                ).show();
-                ((EditText) v).setError(null);
-            }
-        });
-    }
-
-    private void updateTripDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-        dateEditText.setText(sdf.format(tripDateCalendar.getTime()));
     }
 
     public void addList(View view){
@@ -98,7 +59,7 @@ public class CreateListActivity extends AppCompatActivity {
         if(name.trim().equals("") || store.trim().equals("") || date.trim().equals("")){
             Toast.makeText(this, "Please enter data into all fields!", Toast.LENGTH_LONG).show();
         }else{
-            dbHandler.addList(name, store, tripDateCalendar.getTime().getTime());
+            dbHandler.addList(name, store, date);
             Toast.makeText(this, "List added!!", Toast.LENGTH_LONG).show();
         }
     }

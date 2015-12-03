@@ -98,7 +98,9 @@
                 android:id="@+id/dateEditText"
                 android:textColor="@color/white"
                 android:layout_column="1"
-                android:width="200dp" />
+                android:width="200dp"
+                android:hint="YYYY/MM/DD"
+                android:textColorHint="#ece9e9" />
         </TableRow>
 
         <TableRow
